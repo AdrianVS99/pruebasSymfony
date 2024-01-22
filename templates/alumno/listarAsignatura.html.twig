@@ -1,0 +1,8 @@
+{# templates/lucky/number.html.twig #}
+{% for e in alumnos %}
+    <p>{{e.nombre}} | {{e.apellido}} | 
+    {% for asignatura in e.asignaturas %}
+        {{asignatura.asignatura}} 
+    {% endfor %}
+    </p>
+{% endfor %}

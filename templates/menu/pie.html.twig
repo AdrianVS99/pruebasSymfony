@@ -1,0 +1,10 @@
+<ul >
+{% for item in pie %}
+
+	<li id="current" style="">
+	 
+         <a href="{{ path(item.enlace) }}">{{item.titulo}}</a>
+    </li>
+
+{% endfor %}
+</ul>
