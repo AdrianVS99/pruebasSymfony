@@ -18,6 +18,7 @@ use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 // clase
 use App\Entity\Sorteo;
 use App\Repository\SorteoRepository;
+use App\Validator\onceNumero;
 use Symfony\Component\Validator\Constraints\DateTime;
 
 
@@ -46,11 +47,11 @@ class SorteoController extends AbstractController
         ->add('numero', TextType::class)
         // Validacion moneda
         ->add('fecha', ChoiceType::class, [ 'choices' => $choices,  ])
-        ->add('numero', TextType::class)
+        ->add('numero', TextType::class,['constraints' => [new onceNumero()]])
         ->add('Send', SubmitType::class)
         ->getForm();
          
-         
+   
               
         $form->handleRequest( $request );
 
